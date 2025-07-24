@@ -9,7 +9,6 @@ request_log: List[Dict[str, Any]] = []
 def translate_text(text: str, target_lang: str, source_lang: str = "auto") -> str:
     """
     Translates text using a public Google Translate endpoint.
-    This is a more reliable, higher-quality alternative to MyMemory.
     """
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'

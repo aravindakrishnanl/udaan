@@ -21,7 +21,7 @@ def translate_custom_text():
 
         target_lang = input("Enter the target language code (e.g., hi, ta, fr, es): ")
         if not target_lang:
-            print("❌ Error: Target language cannot be empty.")
+            print("Error: Target language cannot be empty.")
             return True
     except (KeyboardInterrupt, EOFError):
         return False
@@ -41,15 +41,12 @@ def translate_custom_text():
         response_data = response.json()
 
         print("\nTranslation Successful!")
-        print("--------------------------")
         print(f"  Source Text: {response_data.get('source_text')}")
         print(f"  Target Language: {response_data.get('target_language')}")
         print(f"  Translated Text: {response_data.get('translated_text')}")
-        print("--------------------------")
 
     except requests.exceptions.HTTPError as e:
         print(f"\nAn error occurred: {e.response.status_code} {e.response.reason}")
-        # Print the detailed error message from the FastAPI service
         print(f"   Server says: {e.response.json().get('detail', 'No details provided.')}")
     except requests.exceptions.RequestException as e:
         print(f"\nA network error occurred: {e}")
@@ -58,10 +55,7 @@ def translate_custom_text():
     return True 
 
 if __name__ == "__main__":
-    print("--- Interactive Translation Client ---")
-    print("This script will send your input to the Project Udaan microservice.")
     
     while translate_custom_text():
         pass
-    
-    print("\nExiting translator. Goodbye!")
+    print("\n  Exited")
