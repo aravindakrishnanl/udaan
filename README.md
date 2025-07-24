@@ -2,4 +2,5 @@
 
 This project is a lightweight, modular translation microservice using FastAPI.
 
-## Project Structure
+## To run
+uvicorn app.main:app --reload
